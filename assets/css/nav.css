@@ -3,14 +3,15 @@ nav.close .header {
     padding: 10px 0 0 0;
 }
 
-nav.close .wrapper .wrapper-item{
+nav.close .wrapper .wrapper-item {
     opacity: 0;
-    visibility: 0!important;
-    height: 0!important;
+    visibility: 0 !important;
+    height: 0 !important;
     padding: 0;
 }
 
 nav {
+    z-index: 1;
     background-color: white;
     box-shadow: inset 0 -1px 0 #cdd2da;
     display: flex;
@@ -36,33 +37,57 @@ nav .header img {
 
 nav .wrapper {
     padding: 15px 0 0 0;
-    width: 63%;
+    width: 88%;
 }
 
 nav .wrapper .item {
     transition: 1s ease-in-out;
     height: 60px;
-    padding:  10px 0;
-    position: relative;
+    padding: 0 0 10px 0;
+    display: flex;
+    flex-direction: row;
 }
 
-nav .wrapper .item .search {
+.search {
+    position: relative;
+    width: 70%;
+}
+
+.search input {
     padding-left: 50px;
     width: 100%;
-    height: 90%;
+    height: 100%;
     border-radius: 25px;
     background-color: #f6f7f9;
     outline: none;
     border: 0;
 }
 
-nav .wrapper .item .search_icon {
+.search .search_icon {
     position: absolute;
-    top: calc(45% - 12px);
+    top: calc(50% - 12px);
     left: 15px;
     width: 24px;
     height: 24px;
 
+}
+
+.user {
+    position: relative;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.user>* {
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.user>*:last-child {
+    margin-right: 0
 }
 
 nav .wrapper .item .menu {
@@ -90,7 +115,6 @@ nav .wrapper .item .menu {
     margin: 0;
 }
 
-nav .user .item .menu-link,
 nav .wrapper .item .menu-business,
 nav .wrapper .item .menu-link {
     text-align: center;
@@ -104,13 +128,8 @@ nav .wrapper .item .menu-link {
 nav .wrapper .item .menu-business,
 nav .wrapper .item .menu-link {
     opacity: 0;
-    transition: 1s ease-in-out;
+    transition: opacity 1s ease-in-out ;
     animation: dragRight 1s ease-in-out forwards calc(var(--anim) * 200ms);
-}
-
-nav .user .item .menu-link {    
-    padding: 10px;
-    margin-left: 10px;
 }
 
 @keyframes dragRight {
@@ -127,10 +146,9 @@ nav .user .item .menu-link {
 }
 
 nav .wrapper .item .menu-link {
-    margin-right: 18px;
+    margin-right: 0;
 }
 
-nav .user .item .menu-link:hover,
 nav .wrapper .item .menu-link:hover {
     cursor: pointer;
     background-color: #f6f7f9;
@@ -138,7 +156,7 @@ nav .wrapper .item .menu-link:hover {
 
 nav .wrapper .item .menu-business,
 nav .wrapper .item .menu-link {
-    padding: 0  10px;
+    padding: 0 20px;
     font-weight: bold;
 }
 
@@ -150,21 +168,19 @@ nav .wrapper .item .menu-business:hover {
     background: linear-gradient(#ff3f52, #f62);
 }
 
-nav .user {
-    font-weight: bold;
-    padding: 15px;
-    width: 25%;
-}
-
 .img {
     height: 100%;
 
 }
 
-.menu-link .header-icon {
+.header-icon {
 
     display: flex;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
+}
+
+.wrapper-item{
+    padding: 10px 0!important;
 }

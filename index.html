@@ -12,9 +12,11 @@
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./assets/css/nav.css">
+    <link rel="stylesheet" href="./assets/css/produto.css">
     <script>
         $(function () {
             $("#includedContent").load("./assets/layout/nav.html");
+            $("#app").load("./pages/produto.html");
         });
         window.onscroll = function (e) {
             var doc = document.documentElement;
@@ -27,95 +29,22 @@
 
     </script>
     <style>
-        body {}
-
         #app {
             padding-top: 140px;
         }
 
-        section {
-            position: relative;
-            height: 852px;
-            scroll-snap-align: start;
-        }
-
-        section:first-child {
-            height: calc(852px - 140px);
-        }
-
-        #meuCanvas {}
-
-        .helper {
-            width: 180px;
-            height: 100%;
-            background-color: red;
-        }
-
         .content {
-            width: 50%;
-            height: 100%;
-        }
-
-        .section-row {
             position: absolute;
-            width: 100%;
-            padding: 0 100px
-        }
-
-        .section-row.header {
             top: 0;
-            height: 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .section-row.content {
-            top: 8%;
-            height: 92%;
             opacity: 0;
             visibility: hidden;
             transition: all 1s ease-in-out;
         }
 
-        #vista-geral {
-            transform: translateX(-800px);
-        }
-
-        #vista-personalizar {
-            transform: translateX(800px);
-        }
-
-        .section-row.content.show {
+        .content.show {
             opacity: 1 !important;
             visibility: visible !important;
             transform: translateX(0) !important;
-        }
-
-        .img-others {
-            width: 15%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            flex-direction: column;
-        }
-
-        .img-others>* {
-            width: 80%;
-            margin-top: 20px;
-            border-radius: 5px;
-            border: 1px solid lightgray;
-        }
-
-        .img-others>*:first-child {
-            margin-top: 0;
-            border: 1px solid black;
-        }
-
-        .img-others>*:hover {
-            cursor: pointer;
-            border: 1px solid black;
         }
     </style>
 
@@ -127,134 +56,14 @@
         <nav id="includedContent"></nav>
     </header>
     <div id="app">
-        <section style="display: flex;align-items:center;flex-direction: column;position: relative;overflow: hidden;">
-            <div class="section-row header">
-                <div>La Redoute / Móveis / Sala de estar, sofás / Móveis TV</div>
-                <div>
-                    <a id="btn-vista-geral" href="#">Vista Geral</a> / <a id="btn-vista-personalizar"
-                        href="#">Personalizar</a>
-                </div>
-            </div>
-
-            <div id="vista-geral" class="section-row content show">
-                <div class="content">
-                    <div class="img-others">
-                        <img
-                            src="https://cdn.laredoute.com/products/5/1/1/5118db1a47ab4ac32be95587ff8554be.jpg?imgopt=twic&twic=v1/resize=70" />
-                        <img
-                            src="https://cdn.laredoute.com/products/f/c/e/fce843df0193c4945dd10ea62705660e.jpg?imgopt=twic&twic=v1/resize=70" />
-                        <img
-                            src="https://cdn.laredoute.com/products/9/9/c/99c19399d63a08ea7ee2a42f3c54c01e.jpg?imgopt=twic&twic=v1/resize=70" />
-                        <img
-                            src="https://cdn.laredoute.com/products/f/6/c/f6c94b760ed7029e7841c9e4e6865dd9.jpg?imgopt=twic&twic=v1/resize=70" />
-                        <img
-                            src="https://cdn.laredoute.com/products/3/5/7/357b23a0f8c824a981b18a78bf4a5444.jpg?imgopt=twic&twic=v1/resize=70" />
-                        <img
-                            src="https://cdn.laredoute.com/products/4/7/a/47ac21a382b51f82d7d9bad814aa1459.jpg?imgopt=twic&twic=v1/resize=70" />
-                    </div>
-                    <div class="img-main">
-                        <img
-                            src="https://cdn.laredoute.com/products/5/1/1/5118db1a47ab4ac32be95587ff8554be.jpg?imgopt=twic&twic=v1/cover=640x640">
-                    </div>
-                </div>
-                <div class="helper">
-
-                </div>
-            </div>
-
-            <div id="vista-personalizar" class="section-row content" style="display: flex; flex-direction:row;">
-                <div class="helper">
-
-                </div>
-                <canvas id="meuCanvas"></canvas>
-                <div class="content">
-                    teste
-                </div>
-            </div>
-        </section>
-        <section style="background-color: red;">
-
-        </section>
-
     </div>
 
-
-
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-    <h1>text</h1>
-
     <footer>
-
     </footer>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
-
-    <script src="./node_modules/three/build/three.min.js"></script>
-    <script src="./node_modules/three/examples/js/controls/OrbitControls.js"></script>
-    <script src="./node_modules/three/examples/js/loaders/GLTFLoader.js"></script>
-
-    <script src="./assets/js/starter.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <script>
-
-        let btVistaGeral = document.getElementById("btn-vista-geral")
-        let btnVistaPersonalizar = document.getElementById("btn-vista-personalizar")
-        let vistaGeral = document.getElementById("vista-geral")
-        let vistaPersonalizar = document.getElementById("vista-personalizar")
-
-        btVistaGeral.addEventListener('click', () => {
-            console.log(vistaGeral)
-            vistaGeral.classList.add('show')
-            vistaPersonalizar.classList.remove('show')
-        })
-        btnVistaPersonalizar.addEventListener('click', () => {
-            vistaGeral.classList.remove('show')
-            vistaPersonalizar.classList.add('show')
-        })
-
-    </script>
 </body>
 
 </html>

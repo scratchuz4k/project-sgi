@@ -1,0 +1,99 @@
+<div class="container header overflow-hidden">
+    <div class="row d-flex justify-content-between py-2">
+        <div class="col-12">
+            <p style="font-size: 12px;">La Redoute / Móveis / Sala de estar, sofás / Móveis TV</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 overflow-hidden" style="height:800px;position: relative;">
+            <div class="row flex-column flex-xl-row">
+                <div
+                    class="col-12 col-xl-7 pb-2 d-flex flex-column flex-xl-row justify-content-start align-items-center">
+                    <div class="d-flex flex-row flex-xl-column order-2 order-xl-1">
+                        <img id="front" class="img-thumbnails  selected" src="./assets/img/views/front.png" />
+                        <img id="sideL" class="img-thumbnails" src="./assets/img/views/sideL.png" />
+                        <img id="sideR" class="img-thumbnails" src="./assets/img/views/sideR.png" />
+                        <img id="back" class="img-thumbnails" src="./assets/img/views/back.png" />
+                    </div>
+                    <div class="mb-3 order-1 order-xl-2">
+                        <canvas id="meuCanvas"></canvas>
+                        <p class="m-0" style="font-size: 11px;">*A imagem é interativa, clique com o rato e arraste para
+                            ver outros ângulos</p>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-5">
+                    <div class="d-flex pb-2">
+                        <div id="btn-vista-geral" class="btn-header">Vista Geral</div>
+                        <div id="btn-vista-detalhes" class="btn-header">Detalhes</div>
+                    </div>
+                    <div class="position-relative">
+                        <div id="vista-geral" class="content show">
+                            <h2 class="pdp-title">Móvel TV/hifi em pinho maciço e palhinha, Gabin </h2>
+                            <div id="mainProductDescription">
+                                <omr>
+                                    <div id="seo-description">Requintado por excelência. Pinho maciço ligeiramente
+                                        polido +
+                                        palhinha = transformação bem sucedida de um móvel baixo para TV num móvel com
+                                        caráter! Uma criação La Redoute Intérieurs.</div>
+                                </omr>
+                            </div>
+                        </div>
+                        <div id="vista-detalhes" class="content">
+                            <h1 class="pdp-description-title margin-b--2">
+                                Móvel tv/hifi em pinho maciço e palhinha, gabin natural <span itemprop="brand">LA
+                                    REDOUTE INTERIEURS</span>
+                            </h1>
+                            <div id="productReference_350271833" class="margin-b--2" data-label="Ref" style="">Ref
+                                <strong>6044182 / GLC190</strong>
+                            </div>
+                            <div id="mainProductDescription">
+                                <omr>
+                                    <div id="seo-description">Requintado por excelência. Pinho maciço ligeiramente
+                                        polido + palhinha = transformação bem sucedida de um móvel baixo para TV num
+                                        móvel com caráter! Uma criação La Redoute Intérieurs.</div>
+                                </omr>
+                                <dscpdp><b>Descrição:</b><br>&nbsp;•&nbsp;&nbsp;Em pinho maciço ligeiramente polido,
+                                    acabamento em carvalho com verniz nitrocelulósico<br>&nbsp;•&nbsp;&nbsp;2 portas
+                                    em palhinha<br>&nbsp;•&nbsp;&nbsp;1 separador vertical<br>&nbsp;•&nbsp;&nbsp;2
+                                    prateleiras amovíveis e reguláveis em 3 posições<br>&nbsp;•&nbsp;&nbsp;4
+                                    nichos<br>&nbsp;•&nbsp;&nbsp;2 gavetas sobre corrediças em
+                                    madeira<br>&nbsp;•&nbsp;&nbsp;Puxadores em metal
+                                    envelhecido<br>&nbsp;•&nbsp;&nbsp;Fundo do móvel em MDF decoração em
+                                    madeira<br><br><b>
+
+                                </dscpdp>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="./node_modules/three/build/three.min.js"></script>
+    <script src="./node_modules/three/examples/js/controls/OrbitControls.js"></script>
+    <script src="./node_modules/three/examples/js/loaders/GLTFLoader.js"></script>
+
+    <script src="./assets/js/starter.js"></script>
+    <script src="./assets/js/main.js"></script>
+
+    <script>
+
+        let btVistaGeral = document.getElementById("btn-vista-geral")
+        let btnVistaDetalhes = document.getElementById("btn-vista-detalhes")
+        let vistaGeral = document.getElementById("vista-geral")
+        let vistaDetalhes = document.getElementById("vista-detalhes")
+
+        btVistaGeral.addEventListener('click', () => {
+            vistaGeral.classList.add('show')
+            vistaDetalhes.classList.remove('show')
+        })
+        btnVistaDetalhes.addEventListener('click', () => {
+            vistaGeral.classList.remove('show')
+            vistaDetalhes.classList.add('show')
+        })
+
+    </script>

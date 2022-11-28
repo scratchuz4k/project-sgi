@@ -1,5 +1,5 @@
-let sizeX = 800
-let sizeY = 600
+let sizeX = 600
+let sizeY = 400
 
 /* CANVAS */
 let meuCanvas = document.getElementById('meuCanvas')
@@ -20,13 +20,13 @@ const cena = new THREE.Scene();
 
 /* CAMARA */
 const camara = new THREE.PerspectiveCamera(70, sizeX / sizeY, 0.01, 100);
-// const controlos = new THREE.OrbitControls(camara, renderer.domElement)
+const controlos = new THREE.OrbitControls(camara, renderer.domElement)
 
 const initCamara = () => {
     // criar uma camara... 
-    camara.position.z = 6
-    camara.position.x = -2
-    camara.position.y = 3
+    camara.position.z = 4
+    camara.position.x = -5
+    camara.position.y = 2
     camara.lookAt(0, 0, 0)
 }
 

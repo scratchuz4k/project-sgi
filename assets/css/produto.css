@@ -1,0 +1,46 @@
+#meuCanvas {
+    border-radius: 10px;
+    border: 1px solid lightgray;
+}
+
+.btn-header {
+    color: black;
+    background-color: #eceded;
+    transition: all 1s ease-in-out;
+    border-radius: 25px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.btn-header:hover {
+    cursor: pointer;
+    background: linear-gradient(#ff3f52, #f62);
+}
+
+
+#vista-geral {
+    transform: translateX(800px);
+}
+
+#vista-detalhes {
+    transform: translateX(800px);
+}
+
+.img-thumbnails {
+    cursor: pointer;
+    border: 1px solid black;
+    width: 70px;
+    height: 70px;
+    margin: 0 15px 20px 0;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+.img-thumbnails.selected {
+    border: 1px solid black !important;
+}
+
+.img-thumbnails:hover {
+    border: 1px solid black !important;
+}

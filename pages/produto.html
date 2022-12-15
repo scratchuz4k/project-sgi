@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 overflow-hidden" style="height:800px;position: relative;">
+        <div class="col-12 overflow-hidden" style="position: relative;">
             <div class="row flex-column flex-xl-row">
                 <div
                     class="col-12 col-xl-7 pb-2 d-flex flex-column flex-xl-row justify-content-start align-items-center">
@@ -21,55 +21,55 @@
                             ver outros ângulos</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-5">
+                <div class="col-12 col-xl-5 d-flex flex-column">
                     <div class="d-flex pb-2">
                         <div id="btn-vista-geral" class="btn-header">Vista Geral</div>
-                        <div id="btn-vista-detalhes" class="btn-header">Detalhes</div>
+                        <div class="btn-header btn-vista-detalhes">Detalhes</div>
                     </div>
-                    <div class="position-relative">
-                        <div id="vista-geral" class="content show">
-                            <h2 class="pdp-title">Móvel TV/hifi em pinho maciço e palhinha, Gabin </h2>
-                            <div id="mainProductDescription">
-                                <omr>
-                                    <div id="seo-description">Requintado por excelência. Pinho maciço ligeiramente
-                                        polido +
-                                        palhinha = transformação bem sucedida de um móvel baixo para TV num móvel com
-                                        caráter! Uma criação La Redoute Intérieurs.</div>
-                                </omr>
-                            </div>
+                    <div id="vista-geral">
+                        <h2 class="pdp-title">Móvel TV/hifi em pinho maciço e palhinha, Gabin </h2>
+                        <div id="mainProductDescription">
+                            <omr>
+                                <div id="seo-description">Requintado por excelência. Pinho maciço ligeiramente
+                                    polido +
+                                    palhinha = transformação bem sucedida de um móvel baixo para TV num móvel com
+                                    caráter! Uma criação La Redoute Intérieurs.</div>
+                            </omr>
                         </div>
-                        <div id="vista-detalhes" class="content">
-                            <h1 class="pdp-description-title margin-b--2">
-                                Móvel tv/hifi em pinho maciço e palhinha, gabin natural <span itemprop="brand">LA
-                                    REDOUTE INTERIEURS</span>
-                            </h1>
-                            <div id="productReference_350271833" class="margin-b--2" data-label="Ref" style="">Ref
-                                <strong>6044182 / GLC190</strong>
-                            </div>
-                            <div id="mainProductDescription">
-                                <omr>
-                                    <div id="seo-description">Requintado por excelência. Pinho maciço ligeiramente
-                                        polido + palhinha = transformação bem sucedida de um móvel baixo para TV num
-                                        móvel com caráter! Uma criação La Redoute Intérieurs.</div>
-                                </omr>
-                                <dscpdp><b>Descrição:</b><br>&nbsp;•&nbsp;&nbsp;Em pinho maciço ligeiramente polido,
-                                    acabamento em carvalho com verniz nitrocelulósico<br>&nbsp;•&nbsp;&nbsp;2 portas
-                                    em palhinha<br>&nbsp;•&nbsp;&nbsp;1 separador vertical<br>&nbsp;•&nbsp;&nbsp;2
-                                    prateleiras amovíveis e reguláveis em 3 posições<br>&nbsp;•&nbsp;&nbsp;4
-                                    nichos<br>&nbsp;•&nbsp;&nbsp;2 gavetas sobre corrediças em
-                                    madeira<br>&nbsp;•&nbsp;&nbsp;Puxadores em metal
-                                    envelhecido<br>&nbsp;•&nbsp;&nbsp;Fundo do móvel em MDF decoração em
-                                    madeira<br><br><b>
-
-                                </dscpdp>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
-
         </div>
+    </div>
+
+
+    <div id="vista-detalhes" class="content-pop">
+        <div class="btn-vista-detalhes">Fechar</div>
+        <h1 class="pdp-description-title margin-b--2">
+            Móvel tv/hifi em pinho maciço e palhinha, gabin natural <span itemprop="brand">LA
+                REDOUTE INTERIEURS</span>
+        </h1>
+        <div id="productReference_350271833" class="margin-b--2" data-label="Ref" style="">Ref
+            <strong>6044182 / GLC190</strong>
+        </div>
+        <div id="mainProductDescription">
+            <omr>
+                <div id="seo-description">Requintado por excelência. Pinho maciço ligeiramente
+                    polido + palhinha = transformação bem sucedida de um móvel baixo para TV num
+                    móvel com caráter! Uma criação La Redoute Intérieurs.</div>
+            </omr>
+            <dscpdp><b>Descrição:</b><br>&nbsp;•&nbsp;&nbsp;Em pinho maciço ligeiramente polido,
+                acabamento em carvalho com verniz nitrocelulósico<br>&nbsp;•&nbsp;&nbsp;2 portas
+                em palhinha<br>&nbsp;•&nbsp;&nbsp;1 separador vertical<br>&nbsp;•&nbsp;&nbsp;2
+                prateleiras amovíveis e reguláveis em 3 posições<br>&nbsp;•&nbsp;&nbsp;4
+                nichos<br>&nbsp;•&nbsp;&nbsp;2 gavetas sobre corrediças em
+                madeira<br>&nbsp;•&nbsp;&nbsp;Puxadores em metal
+                envelhecido<br>&nbsp;•&nbsp;&nbsp;Fundo do móvel em MDF decoração em
+                madeira<br><br><b>
+
+            </dscpdp>
+        </div>
+
     </div>
 
 
@@ -82,18 +82,20 @@
 
     <script>
 
-        let btVistaGeral = document.getElementById("btn-vista-geral")
-        let btnVistaDetalhes = document.getElementById("btn-vista-detalhes")
-        let vistaGeral = document.getElementById("vista-geral")
+        // let btVistaGeral = document.getElementById("btn-vista-geral")
+        let btnVistaDetalhes = document.querySelectorAll(".btn-vista-detalhes")
+        console.log(btnVistaDetalhes)
+        // let vistaGeral = document.getElementById("vista-geral")
         let vistaDetalhes = document.getElementById("vista-detalhes")
 
-        btVistaGeral.addEventListener('click', () => {
-            vistaGeral.classList.add('show')
-            vistaDetalhes.classList.remove('show')
-        })
-        btnVistaDetalhes.addEventListener('click', () => {
-            vistaGeral.classList.remove('show')
-            vistaDetalhes.classList.add('show')
+        // btVistaGeral.addEventListener('click', () => {
+        //     vistaDetalhes.classList.toggle('show')
+        // })
+        btnVistaDetalhes.forEach((e) => {
+            e.addEventListener('click', () => {
+                console.log("teste")
+                vistaDetalhes.classList.toggle('show')
+            })
         })
 
     </script>

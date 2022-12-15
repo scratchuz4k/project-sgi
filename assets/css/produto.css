@@ -18,11 +18,6 @@
     background: linear-gradient(#ff3f52, #f62);
 }
 
-
-#vista-geral {
-    transform: translateX(800px);
-}
-
 #vista-detalhes {
     transform: translateX(800px);
 }
@@ -43,4 +38,21 @@
 
 .img-thumbnails:hover {
     border: 1px solid black !important;
+}
+
+.content-pop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    visibility: hidden;
+    transition: all 1s ease-in-out;
+    z-index: 100;
+    width: 45%;
+    height: 100%;
+    background-color: white;
+}
+
+.content-pop.show {
+    visibility: visible !important;
+    transform: translateX(0) !important;
 }

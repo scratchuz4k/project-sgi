@@ -18,8 +18,16 @@
     background: linear-gradient(#ff3f52, #f62);
 }
 
+.btn-vista-detalhes{
+    font-weight: 600;
+}
+.btn-vista-detalhes:hover {
+    cursor: pointer;
+    color: #ff3f52!important;
+}
+
 #vista-detalhes {
-    transform: translateX(800px);
+    transform: translateX(1000px);
 }
 
 .img-thumbnails {
@@ -59,10 +67,7 @@
 }
 
 @media screen and (max-width: 1000px) {
-
     .content-pop {
         width: 100%;
-
     }
-
 }

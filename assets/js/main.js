@@ -10,13 +10,14 @@ carregador.load(
     './assets/blender/armario.gltf',
     function (gltf) {
         model = gltf.scene;
+        console.log(gltf);
         loading = false
+        model.position.set(0, -1, 0)
         let bbox = new THREE.Box3().setFromObject(model);
         let helper = new THREE.Box3Helper(bbox, new THREE.Color(0, 255, 0));
         sizes = bbox.getSize(new THREE.Vector3()); // HEREyou get the size
-        model.position.set(0, -1, 0)
         cena.add(model);
-        // cena.add(helper);
+        cena.add(helper);
     }
 )
 

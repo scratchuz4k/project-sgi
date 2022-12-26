@@ -44,7 +44,8 @@
 
 
     <div id="vista-detalhes" class="content-pop">
-        <div class="btn-vista-detalhes">Fechar</div>
+
+        <button class="btn-header btn-vista-detalhes mb">Fechar</button>
         <h1 class="pdp-description-title margin-b--2">
             Móvel tv/hifi em pinho maciço e palhinha, gabin natural <span itemprop="brand">LA
                 REDOUTE INTERIEURS</span>
@@ -82,15 +83,10 @@
 
     <script>
 
-        // let btVistaGeral = document.getElementById("btn-vista-geral")
         let btnVistaDetalhes = document.querySelectorAll(".btn-vista-detalhes")
         console.log(btnVistaDetalhes)
-        // let vistaGeral = document.getElementById("vista-geral")
         let vistaDetalhes = document.getElementById("vista-detalhes")
 
-        // btVistaGeral.addEventListener('click', () => {
-        //     vistaDetalhes.classList.toggle('show')
-        // })
         btnVistaDetalhes.forEach((e) => {
             e.addEventListener('click', () => {
                 console.log("teste")

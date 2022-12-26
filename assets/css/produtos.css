@@ -1,0 +1,19 @@
+.category-list {
+  display: inline-flex;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card-text {
+  display: inline-block;
+  max-width: available;
+}
+.card-price {
+  text-decoration: line-through;
+}
+
+.card-discount {
+  padding-left: 0.5rem;
+}

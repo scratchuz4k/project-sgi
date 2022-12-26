@@ -2,7 +2,7 @@ nav {
     padding-top: 15px;
     width: 100vw;
     position: fixed;
-    z-index: 999;
+    z-index: 10;
     background-color: white;
 }
 

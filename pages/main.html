@@ -1,10 +1,29 @@
-<div id="main" class="container">
+<div id="main" class="container-fluid">
     <div>
         <p>breadcrumb</p>
     </div>
     <div>
         <h1>Móveis TV</h1>
     </div>
+
+    <section class="layout">
+        <div class="sidebar">
+            <div class="category-list">
+                <div v-for="category in categories" class="list-group">
+                    <li class="list-group-item list-group-item-action" @click="goToUrl(category.url)">{{category.name}}</li>
+                  </div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="row">
+                <div v-for="product in products" :key="product.id" class="col-sm-12 col-md-3 card">
+                    <img :src="product.img" class="card-img-top" :alt=product.id>
+                    <div class="card-body">
+                        <h6 class="card-title">{{product.collection}}</h6>
+                        <p class="card-text text-truncate">{{product.description}}</p>
+                        <p><span class="card-price">{{product.price.toFixed(2)}} €</span><span class="card-discount">-{{product.discount * 100}}%</span></p>
+                        <h5 class="card-discounted-price">{{(product.price - (product.price * product.discount)).toFixed(2)}} €</h5>
+                    </div>
     <div class="category-list">
         <p>lista categorias</p>
     </div>
@@ -21,58 +40,95 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>
-
-<button class="route-btn" route="produtos">produtos</button>
 
 <script>
     const { createApp } = Vue
 
     createApp({
         data() {
-        return {
-            products:
-            [
-                {
-                    id: 1,
-                    img: "./assets/img/products/prod_01.webp",
-                    collection: "LA REDOUTE INTERIEURS",
-                    description: "Móvel para tv, 180 cm, fachada com relevo, jerem nogueira",
-                    discount: 0.2,
-                    price: 989.00
-                },
-                {
-                    id: 2,
-                    img: "./assets/img/products/prod_02.webp",
-                    collection: "LA REDOUTE INTERIEURS",
-                    description: "Móvel para tv em folha de carvalho, 3 portas, madria carvalho",
-                    discount: 0.2,
-                    price: 935.00
-                },
-                {
-                    id: 3,
-                    img: "./assets/img/products/prod_03.webp",
-                    collection: "LA REDOUTE INTERIEURS",
-                    description: "Móvel vintage, ronda nogueira",
-                    discount: 0.2,
-                    price: 407.00
-                },
-                {
-                    id: 4,
-                    img: "./assets/img/products/prod_04.webp",
-                    collection: "LA REDOUTE INTERIEURS",
-                    description: "Móvel para tv, em carvalho e palhinha, 160 cm, waska carvalho",
-                    discount: 0.25,
-                    price: 780.00
-                }
-            ]
-        }
-        },
-        
-    }).mount('#main')
+            return {
+                products: [
+                    {
+                        id: 1,
+                        img: "./assets/img/products/prod_01.webp",
+                        collection: "LA REDOUTE INTERIEURS",
+                        description: "Móvel para tv, 180 cm, fachada com relevo, jerem nogueira",
+                        discount: 0.2,
+                        price: 989.00
+                    },
+                    {
+                        id: 2,
+                        img: "./assets/img/products/prod_02.webp",
+                        collection: "LA REDOUTE INTERIEURS",
+                        description: "Móvel para tv em folha de carvalho, 3 portas, madria carvalho",
+                        discount: 0.2,
+                        price: 935.00
+                    },
+                    {
+                        id: 3,
+                        img: "./assets/img/products/prod_03.webp",
+                        collection: "LA REDOUTE INTERIEURS",
+                        description: "Móvel vintage, ronda nogueira",
+                        discount: 0.2,
+                        price: 407.00
+                    },
+                    {
+                        id: 4,
+                        img: "./assets/img/products/prod_04.webp",
+                        collection: "LA REDOUTE INTERIEURS",
+                        description: "Móvel para tv, em carvalho e palhinha, 160 cm, waska carvalho",
+                        discount: 0.25,
+                        price: 780.00
+                    }
+                ],
 
-    $(".route-btn").click(function () {
-        $("#app").load("./pages/produto.html");
-    })
+                categories: [
+                    {
+                        id: 1,
+                        name: 'Sofás',
+                        url: '#',
+                    },
+                    {
+                        id: 2,
+                        name: 'Cadeirões, pufes',
+                        url: '#'
+                    },
+                    {
+                        id: 3,
+                        name: 'Tapetes',
+                        url: '#'
+                    },
+                    {
+                        id: 4,
+                        name: 'Meas de centro',
+                        url: '#'
+                    },
+                    {
+                        id: 5,
+                        name: 'Móveis TV',
+                        url: './pages/produto.html'
+                    },
+                    {
+                        id: 6,
+                        name: 'Candeeiros',
+                        url: '#'
+                    },
+                    {
+                        id: 7,
+                        name: 'Estantes',
+                        url: '#'
+                    }
+                ],
+            }
+        },
+        methods: {
+            goToUrl(url){
+                if(url !== '#'){
+                   $("#main").load(url); 
+                }
+            }
+        } 
+    }).mount('#main')
 </script>

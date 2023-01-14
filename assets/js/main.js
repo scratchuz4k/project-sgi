@@ -5,28 +5,38 @@ let acoes = []
 let loading = true
 let sizes
 let children = []
+let model
+
+let material = {};
+material.wood = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load('./assets/img/textures/wood.jpg') })
+material.roxo = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load('./assets/img/textures/roxo.jpg') })
+material.nogueira = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load('./assets/img/textures/nogueira.jpg') })
+
+let lastMaterialName;
 
 let carregador = new THREE.GLTFLoader()
 carregador.load(
     './assets/blender/armario.gltf',
     function (gltf) {
+        model = gltf.scene
+
+        let cube = model.getObjectByName('Cube');
+        material.mogno = cube.material;
+        lastMaterialName = cube.material.name
+        gltf.scene.position.set(0, -1, 0)
+
+        cena.add(gltf.scene);
+
+        gltf.animations.forEach((e) => {
+            acoes.push(misturador.clipAction(e));
+        })
+
         gltf.scene.children.forEach((e) => {
             if (e.name != 'Cube') {
                 e.addEventListener("click", function () { console.log("teste") })
                 children.push(e)
             }
         });
-        console.log(children)
-        debugger
-        gltf.scene.position.set(0, -1, 0)
-        let bbox = new THREE.Box3().setFromObject(gltf.scene);
-        let helper = new THREE.Box3Helper(bbox, new THREE.Color(0, 255, 0));
-        cena.add(gltf.scene);
-        gltf.animations.forEach((e) => {
-            acoes.push(misturador.clipAction(e));
-        })
-        sizes = bbox.getSize(new THREE.Vector3()); // HEREyou get the size
-        // cena.add(helper);
     }
 )
 
@@ -53,9 +63,10 @@ btnCamaraPos.forEach((e) => {
                 break;
 
         }
+        btnCamaraPos.forEach((e) => { e.classList.remove('selected') })
+        e.target.classList.add('selected')
     })
 })
-
 
 
 let btnPlay = document.getElementById("btn_play")
@@ -64,6 +75,24 @@ btnPlay.addEventListener('click', function () {
     acoes[0].play()
     acoes[1].play()
     acoes[2].play()
+    acoes[3].play()
+})
+
+let btnTexture = document.querySelectorAll(".texture-item")
+
+btnTexture.forEach((e) => {
+    e.addEventListener('click', function () {
+        model.traverse(function (child) {
+            if (child.isMesh && child.material.name == lastMaterialName) {
+                child.material = material[e.id]
+                child.material.name = e.id
+            }
+        })
+        lastMaterialName = e.id
+        cena.add(model);
+        btnTexture.forEach((e) => { e.classList.remove('active') })
+        e.classList.add('active')
+    });
 })
 
 function onPointerMove(event) {

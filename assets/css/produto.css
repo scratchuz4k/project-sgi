@@ -18,12 +18,12 @@
     background: linear-gradient(#ff3f52, #f62);
 }
 
-.btn-vista-detalhes{
+.btn-vista-detalhes {
     font-weight: 600;
 }
 .btn-vista-detalhes:hover {
     cursor: pointer;
-    color: #ff3f52!important;
+    color: #ff3f52 !important;
 }
 
 #vista-detalhes {
@@ -70,4 +70,27 @@
     .content-pop {
         width: 100%;
     }
+}
+
+.texture-item {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    margin: 0 10px 0 0;
+    opacity: 0.8;
+    transition: 0.4s all ease-in-out;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.texture-item:hover {
+    opacity: 1;
+    border: 3px solid black;
+    cursor: pointer;
+}
+
+.texture-item.active {
+    opacity: 1;
+    border: 3px solid black;
 }

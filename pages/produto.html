@@ -3,7 +3,7 @@
         <div class="col-12">
             <p style="font-size: 18px;">
                 <span onclick="goBack()" style="cursor: pointer;">
-                  <i id="leftArrow" class="bi bi-arrow-left"></i>  
+                    <i id="leftArrow" class="bi bi-arrow-left"></i>
                 </span>
                 La Redoute / Móveis / Sala de estar <b>/ Móveis TV</b>
             </p>
@@ -21,8 +21,8 @@
                     </div>
                     <div class="mb-3 order-1 order-xl-2">
                         <canvas id="meuCanvas"></canvas>
-                        <p class="m-0" style="font-size: 11px;">*A imagem é interativa, clique com o rato e arraste para
-                            ver outros ângulos</p>
+                        <p class="m-0" style="font-size: 11px;">A imagem é interativa, clique com o rato e arraste para
+                            ver outros ângulos e scroll para zoom</p>
                         <div class="d-flex justify-content-around mt-3">
                             <a id="portas" class="btn-play">Abrir Portas</a>
                             <a id="gavetas" class="btn-play">Abrir Gavetas</a>
@@ -51,11 +51,6 @@
                         <hr />
                         <b>Tamanho TAMANHO ÚNICO</b>
                         <hr />
-                        <b>Quantidade:</b>
-                        <input id="quantity"
-                            style="margin-left:10px;border: 0;border-bottom: 1px solid black; width: 60px;"
-                            type="number" step="1" value="1">
-                        <hr />
                         <p class="h5"><del>645.00 €</del> -27%</p>
                         <p><b id="priceTag" class="h2">470.85 €</b></p>
                         <div class="btn-carrinho">
@@ -68,68 +63,43 @@
     </div>
 
 
-    <div id="vista-detalhes" class="content-pop">
+    <div id="vista-detalhes" class="content-pop" style="overflow-y: auto;">
 
         <button class="btn-header btn-vista-detalhes mb">Fechar</button>
-        <h1 class="pdp-description-title margin-b--2">
+        <h3 class="pdp-description-title margin-b--2">
             Móvel tv/hifi em pinho maciço e palhinha, gabin natural <span itemprop="brand">LA
                 REDOUTE INTERIEURS</span>
-        </h1>
+        </h3>
         <div id="productReference_350271833" class="margin-b--2" data-label="Ref" style="">Ref
             <strong>6044182 / GLC190</strong>
         </div>
         <div id="mainProductDescription">
             <omr>
-                <div id="seo-description">Requintado por excelência. Pinho maciço ligeiramente
-                    polido + palhinha = transformação bem sucedida de um móvel baixo para TV num
-                    móvel com caráter! Uma criação La Redoute Intérieurs.</div>
+                <div id="seo-description">Requintado por excelência. Pinho maciço ligeiramente polido + palhinha =
+                    transformação bem sucedida de um móvel baixo para TV num móvel com caráter! Uma criação La Redoute
+                    Intérieurs.</div>
             </omr>
-            <dscpdp><b>Descrição:</b><br>&nbsp;•&nbsp;&nbsp;Em pinho maciço ligeiramente polido,
-                acabamento em carvalho com verniz nitrocelulósico<br>&nbsp;•&nbsp;&nbsp;2 portas
-                em palhinha<br>&nbsp;•&nbsp;&nbsp;1 separador vertical<br>&nbsp;•&nbsp;&nbsp;2
-                prateleiras amovíveis e reguláveis em 3 posições<br>&nbsp;•&nbsp;&nbsp;4
-                nichos<br>&nbsp;•&nbsp;&nbsp;2 gavetas sobre corrediças em
-                madeira<br>&nbsp;•&nbsp;&nbsp;Puxadores em metal
-                envelhecido<br>&nbsp;•&nbsp;&nbsp;Fundo do móvel em MDF decoração em
-                madeira<br><br><b>
-
-            </dscpdp>
+            <dscpdp><b>Descrição:</b><br>&nbsp;•&nbsp;&nbsp;Em pinho maciço ligeiramente polido, acabamento em carvalho
+                com verniz nitrocelulósico<br>&nbsp;•&nbsp;&nbsp;2 portas em palhinha<br>&nbsp;•&nbsp;&nbsp;1 separador
+                vertical<br>&nbsp;•&nbsp;&nbsp;2 prateleiras amovíveis e reguláveis em 3
+                posições<br>&nbsp;•&nbsp;&nbsp;4 nichos<br>&nbsp;•&nbsp;&nbsp;2 gavetas sobre corrediças em
+                madeira<br>&nbsp;•&nbsp;&nbsp;Puxadores em metal envelhecido<br>&nbsp;•&nbsp;&nbsp;Fundo do móvel em MDF
+                decoração em madeira<br><br><b>Dimensões:</b><br>Totais<br>&nbsp;•&nbsp;&nbsp;Comprimento: 152
+                cm<br>&nbsp;•&nbsp;&nbsp;Altura: 50 cm<br>&nbsp;•&nbsp;&nbsp;Profundidade: 45
+                cm<br><br>Úteis<br>&nbsp;•&nbsp;&nbsp;Gavetas: larg. 40 x alt. 12 x prof. 33,5
+                cm<br>&nbsp;•&nbsp;&nbsp;4 nichos (dim. úteis exceto prateleiras): larg. 46,5 x alt. 33 x prof. 39,4
+                cm<br>&nbsp;•&nbsp;&nbsp;Altura dos pés: 8 cm<br><br><b>Entrega</b><br>Este artigo é entregue
+                desmontado. Será entregue em sua casa.<br>Atenção! Verifique se as aberturas (portas, escadas,
+                elevadores) permitem a passagem da embalagem no ato da entrega.<br></dscpdp>
+            <colis><b>Dimensões e peso da embalagem</b><br>1 embalagem<br>&nbsp;•&nbsp;&nbsp;Comp. 162,8 x alt. 20 x
+                prof. 55,5 cm. 36,5 kg<br></colis>
         </div>
 
     </div>
 
-
-    <script src="./imports/three/build/three.min.js"></script>
-    <script src="./imports/three/examples/js/controls/OrbitControls.js"></script>
-    <script src="./imports/three/examples/js/loaders/GLTFLoader.js"></script>
-
-    <!-- <script src="./assets/js/three.min.js"></script>
-    <script src="./assets/js/OrbitControls.js"></script>
-    <script src="./assets/js/GLTFLoader.js"></script> -->
-
-    <script src="./assets/js/starter.js"></script>
-    <script src="./assets/js/main.js"></script>
-
     <script>
-
-        let btnVistaDetalhes = document.querySelectorAll(".btn-vista-detalhes")
-        console.log(btnVistaDetalhes)
-        let vistaDetalhes = document.getElementById("vista-detalhes")
-
-        btnVistaDetalhes.forEach((e) => {
-            e.addEventListener('click', () => {
-                console.log("teste")
-                vistaDetalhes.classList.toggle('show')
-            })
-        })
-
-        let btnCarrinho = document.querySelector(".btn-carrinho")
-
-        btnCarrinho.addEventListener("click", () => {
-            addCarrinho()
-        })
-        function goBack() {
-            $("#app").load("./pages/main.html");
-        }
-
+        initRenderer()
+        animar();
+        loadModel()
+        startProduct();
     </script>

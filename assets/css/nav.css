@@ -144,6 +144,7 @@ nav {
     border-radius: 25px;
     padding: 0 20px;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .menu-link:hover {
@@ -218,6 +219,7 @@ nav {
 }
 .carrinho-icon {
     position: relative;
+    cursor: pointer;
 }
 
 .carrinho-amount {

@@ -7,13 +7,13 @@ let quantity = 1
 const data = {
     products: [
         { id: 1, img: "./assets/img/products/prod_01.png", collection: "LA REDOUTE INTERIEURS", description: "Móvel tv/hifi em pinho maciço e palhinha, gabin natural", discount: 0.30, price: 1000.00, url: './pages/produto.html', },
-        { id: 2, img: "./assets/img/products/prod_02.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para tv, 180 cm, fachada com relevo, jerem nogueira", discount: 0.2, price: 989.00, url: '#', },
-        { id: 3, img: "./assets/img/products/prod_03.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para tv em folha de carvalho, 3 portas, madria carvalho", discount: 0.2, price: 935.00, url: '#', },
-        { id: 4, img: "./assets/img/products/prod_04.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel vintage, ronda nogueira", discount: 0.2, price: 407.00, url: '#', },
-        { id: 5, img: "./assets/img/products/prod_05.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para tv, em carvalho e palhinha, 160 cm, waska carvalho", discount: 0.25, price: 780.00, url: '#', },
-        { id: 6, img: "./assets/img/products/prod_06.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para TV, 2 portas de correr, Wapong", discount: 0.27, price: 989.00, url: '#', },
-        { id: 7, img: "./assets/img/products/prod_07.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para TV/hifi vintage, em nogueira e palhinha, Dalqui", discount: 0.28, price: 1209.00, url: '#', },
-        { id: 7, img: "./assets/img/products/prod_08.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para TV, carvalho maciço encaixado e aço, Hiba", discount: 0.27, price: 615.00, url: '#', }
+        { id: 2, img: "./assets/img/products/prod_02.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para tv, 180 cm, fachada com relevo, jerem nogueira", discount: 0.2, price: 989.00, url: './pages/produto.html', },
+        { id: 3, img: "./assets/img/products/prod_03.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para tv em folha de carvalho, 3 portas, madria carvalho", discount: 0.2, price: 935.00, url: './pages/produto.html', },
+        { id: 4, img: "./assets/img/products/prod_04.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel vintage, ronda nogueira", discount: 0.2, price: 407.00, url: './pages/produto.html', },
+        { id: 5, img: "./assets/img/products/prod_05.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para tv, em carvalho e palhinha, 160 cm, waska carvalho", discount: 0.25, price: 780.00, url: './pages/produto.html', },
+        { id: 6, img: "./assets/img/products/prod_06.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para TV, 2 portas de correr, Wapong", discount: 0.27, price: 989.00, url: './pages/produto.html', },
+        { id: 7, img: "./assets/img/products/prod_07.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para TV/hifi vintage, em nogueira e palhinha, Dalqui", discount: 0.28, price: 1209.00, url: './pages/produto.html', },
+        { id: 7, img: "./assets/img/products/prod_08.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para TV, carvalho maciço encaixado e aço, Hiba", discount: 0.27, price: 615.00, url: './pages/produto.html', }
     ],
     categories: [
         { id: 1, name: 'Sofás', url: './pages/main.html', },

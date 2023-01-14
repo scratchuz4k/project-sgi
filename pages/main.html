@@ -16,12 +16,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="category-list">
-                    <div class="list-group">
-
-                        <li class="list-group-item list-group-item-action">
-                            {{category.name}}</li>
-
-                    </div>
+                    <div id="categoryList" class="list-group"></div>
                 </div>
             </div>
         </div>
@@ -34,6 +29,7 @@
 </div>
 
 <script>
+    renderCategoryList()
 
     renderProductList()
 
@@ -42,7 +38,4 @@
             $('#app').load(url)
         }
     }
-
-    
-
 </script>

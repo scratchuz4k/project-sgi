@@ -31,12 +31,12 @@ carregador.load(
             acoes.push(misturador.clipAction(e));
         })
 
-        gltf.scene.children.forEach((e) => {
-            if (e.name != 'Cube') {
-                e.addEventListener("click", function () { console.log("teste") })
-                children.push(e)
-            }
-        });
+        acoes.forEach((e) => {
+            let loop = THREE.LoopOnce
+            let clamp = true;
+            e.setLoop(loop)
+            e.clampWhenFinished = clamp
+        })
     }
 )
 
@@ -69,14 +69,59 @@ btnCamaraPos.forEach((e) => {
 })
 
 
-let btnPlay = document.getElementById("btn_play")
+let btnPlay = document.querySelectorAll(".btn-play")
+let boolPortas = false
+let boolGavetas = true
 
-btnPlay.addEventListener('click', function () {
-    acoes[0].play()
-    acoes[1].play()
-    acoes[2].play()
-    acoes[3].play()
+btnPlay.forEach((e) => {
+    e.addEventListener('click', function () {
+        if (e.id == 'gavetas') {
+            switch (boolGavetas) {
+                case false:
+                    toggleAnimation(acoes[2], -1)
+                    toggleAnimation(acoes[3], 1)
+                    boolGavetas = 'fechar'
+                    e.innerHTML = "Fechar Gavetas"
+                    break;
+                case true:
+                    toggleAnimation(acoes[2], 1)
+                    toggleAnimation(acoes[3], -1)
+                    boolGavetas = false
+                    e.innerHTML = "Abrir Gavetas"
+                    break;
+                case 'fechar':
+                    toggleAnimation(acoes[2], -1)
+                    toggleAnimation(acoes[3], -1)
+                    boolGavetas = true
+                    e.innerHTML = "Abrir Gavetas"
+                    break;
+                default:
+                    toggleAnimation(acoes[2], -1)
+                    toggleAnimation(acoes[3], -1)
+                    boolGavetas = true
+                    break
+            }
+        } else {
+            if (!boolPortas) {
+                toggleAnimation(acoes[0], 1)
+                toggleAnimation(acoes[1], 1)
+                boolPortas = !boolPortas
+                e.innerHTML = "Fechar Portas"
+            } else {
+                toggleAnimation(acoes[0], -1)
+                toggleAnimation(acoes[1], -1)
+                boolPortas = !boolPortas
+                e.innerHTML = "Abrir Portas"
+            }
+        }
+    })
 })
+
+function toggleAnimation(animation, timeScale,) {
+    animation.paused = false
+    animation.timeScale = timeScale;
+    animation.play()
+}
 
 let btnTexture = document.querySelectorAll(".texture-item")
 
@@ -95,24 +140,6 @@ btnTexture.forEach((e) => {
     });
 })
 
-function onPointerMove(event) {
-
-    // calculate pointer position in normalized device coordinates
-    // (-1 to +1) for both components
-
-    rato.x = (event.clientX / window.innerWidth) * 2 - 1;
-    rato.y = - (event.clientY / window.innerHeight) * 2 + 1;
-    raycaster.setFromCamera(rato, camara);
-
-    const intersects = raycaster.intersectObjects(children)
-    for (let i = 0; i < intersects.length; i++) {
-        console.log(intersects)
-    }
-}
-
-window.addEventListener('mousemove', onPointerMove);
-
-// iniciar animação... 
 animar();
 
 function animar() {

@@ -12,8 +12,7 @@
     <div class="row">
         <div class="col-12 overflow-hidden" style="position: relative;">
             <div class="row flex-column flex-xl-row">
-                <div
-                    class="col-12 col-xl-7 pb-2 d-flex flex-column flex-xl-row justify-content-start align-items-center">
+                <div class="col-12 col-xl-7 pb-2 d-flex flex-column flex-xl-row justify-content-start">
                     <div class="d-flex flex-row flex-xl-column order-2 order-xl-1">
                         <img id="front" class="img-thumbnails selected" src="./assets/img/views/front.png" />
                         <img id="sideL" class="img-thumbnails" src="./assets/img/views/sideL.png" />
@@ -24,16 +23,21 @@
                         <canvas id="meuCanvas"></canvas>
                         <p class="m-0" style="font-size: 11px;">*A imagem é interativa, clique com o rato e arraste para
                             ver outros ângulos</p>
+                        <div class="d-flex justify-content-around mt-3">
+                            <a id="portas" class="btn-play">Abrir Portas</a>
+                            <a id="gavetas" class="btn-play">Abrir Gavetas</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-xl-5">
                     <div class="mb-3">
                         <h2 class="pdp-title ">Móvel TV/hifi em pinho maciço e palhinha, Gabin </h2>
                         <div
-                            style="display: flex;align-items: center; justify-content: space-between;flex-direction: row;">
+                            style="margin-bottom: 10px;display: flex;align-items: center; justify-content: space-between;flex-direction: row;">
                             <p class="btn-vista-detalhes m-0">Ver descrição</p>
                             <img id="back" src="./assets/img/rates.png" />
                         </div>
+                        <b>Materiais Disponiveis:</b>
                         <div class="d-flex justify-content-space-around my-3">
                             <div id="mogno" class="texture-item active"
                                 style="background-image: url('./assets/img/textures/mogno.jpg');"></div>
@@ -44,7 +48,19 @@
                             <div id="wood" class="texture-item"
                                 style="background-image: url('./assets/img/textures/wood.jpg');"></div>
                         </div>
-                        <button id="btn_play">teste açao</button>
+                        <hr />
+                        <b>Tamanho TAMANHO ÚNICO</b>
+                        <hr />
+                        <b>Quantidade:</b>
+                        <input id="quantity"
+                            style="margin-left:10px;border: 0;border-bottom: 1px solid black; width: 60px;"
+                            type="number" step="1" value="1">
+                        <hr />
+                        <p class="h5"><del>645.00 €</del> -27%</p>
+                        <p><b id="priceTag" class="h2">470.85 €</b></p>
+                        <div class="btn-carrinho">
+                            JUNTAR AO CARRINHO
+                        </div>
                     </div>
                 </div>
             </div>
@@ -107,6 +123,11 @@
             })
         })
 
+        let btnCarrinho = document.querySelector(".btn-carrinho")
+
+        btnCarrinho.addEventListener("click", () => {
+            addCarrinho()
+        })
         function goBack() {
             $("#app").load("./pages/main.html");
         }

@@ -216,3 +216,27 @@ nav {
         display: none !important;
     }
 }
+.carrinho-icon {
+    position: relative;
+}
+
+.carrinho-amount {
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    top: -8px;
+    right: -8px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-icon {
+    height: 24px;
+    width: 24px;
+}

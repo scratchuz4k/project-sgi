@@ -4,6 +4,7 @@ let sizeY = 400
 /* CANVAS */
 let meuCanvas = document.getElementById('meuCanvas')
 let renderer = new THREE.WebGLRenderer({ canvas: meuCanvas, alpha: true })
+meuCanvas.style.width = '100%!important';
 // const renderer = new THREE.WebGLRenderer({ alpha: true });
 
 const initRenderer = () => {

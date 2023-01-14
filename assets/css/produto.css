@@ -1,8 +1,16 @@
 #meuCanvas {
     border-radius: 10px;
     border: 1px solid lightgray;
+    width: 100% !important;
+    touch-action: none;
+    object-fit: cover;
 }
 
+@media screen and (max-width: 600px) {
+    #meuCanvas {
+        height: 300px !important;
+    }
+}
 .btn-header {
     color: black;
     background-color: #eceded;
@@ -93,4 +101,34 @@
 .texture-item.active {
     opacity: 1;
     border: 3px solid black;
+}
+
+.btn-carrinho {
+    color: white;
+    background: black;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+}
+.btn-carrinho:hover {
+    cursor: pointer;
+    color: white;
+    border: 0;
+    background: linear-gradient(#ff3f52, #f62);
+}
+
+.btn-play {
+    color: black;
+    width: 40%;
+    background: lightgray;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+.btn-play:hover {
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(#ff3f52, #f62);
 }

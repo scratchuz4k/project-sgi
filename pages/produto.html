@@ -2,8 +2,11 @@
     <div class="row d-flex justify-content-between py-2">
         <div class="col-12">
             <p style="font-size: 18px;">
-                <i class="bi bi-arrow-left"></i>
-                La Redoute / Móveis / Sala de estar <b>/ Móveis TV</b></p>
+                <span onclick="goBack()" style="cursor: pointer;">
+                  <i id="leftArrow" class="bi bi-arrow-left"></i>  
+                </span>
+                La Redoute / Móveis / Sala de estar <b>/ Móveis TV</b>
+            </p>
         </div>
     </div>
     <div class="row">
@@ -103,5 +106,9 @@
                 vistaDetalhes.classList.toggle('show')
             })
         })
+
+        function goBack() {
+            $("#app").load("./pages/main.html");
+        }
 
     </script>

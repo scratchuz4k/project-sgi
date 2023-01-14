@@ -10,145 +10,39 @@
     <section class="sidebar container">
         <div class="row my-3 my-1">
             <div class="col-12 d-flex justify-content-end">
-                <button type="button" class="btn-close" @click="toggleSidebar()"></button>
+                <button type="button" class="btn-close" onclick="toggleSidebar()"></button>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="category-list">
-                    <div v-for="category in categories" class="list-group">
-                        <li class="list-group-item list-group-item-action" @click="goToUrl(category.url)">
+                    <div class="list-group">
+
+                        <li class="list-group-item list-group-item-action">
                             {{category.name}}</li>
+
                     </div>
                 </div>
             </div>
         </div>
-    
+
     </section>
 
     <div class="container">
-        <div class="row">
-            <div v-for="item in products" :key="item.id" class="col-sm-12 col-md-6 col-lg-4 col-xl-3 card">
-                <div @click="goToUrl(item.url)" style="cursor: pointer;">
-                    <img :src="item.img" class="card-img-top" :alt=item.id>
-                    <div class="card-body">
-                        <h6 class="card-title">{{item.collection}}</h6>
-                        <p class="card-text">{{item.description}}</p>
-                        <p>
-                            <span class="card-price">{{item.price.toFixed(2)}} €</span>
-                            <span class="card-discount">-{{item.discount * 100}}%</span>
-                        </p>
-                        <h5 class="card-discounted-price">{{(item.price - (item.price * item.discount)).toFixed(2)}} €</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id="productList" class="row"></div>
     </div>
 </div>
 
 <script>
-    const { createApp } = Vue
 
-    createApp({
-        data() {
-            return {
-                products: [
-                    {
-                        id: 1,
-                        img: "./assets/img/products/prod_01.png",
-                        collection: "LA REDOUTE INTERIEURS",
-                        description: "Móvel tv/hifi em pinho maciço e palhinha, gabin natural",
-                        discount: 0.30,
-                        price: 1000.00,
-                        url: './pages/produto.html',
-                    },
-                    {
-                        id: 2,
-                        img: "./assets/img/products/prod_02.webp",
-                        collection: "LA REDOUTE INTERIEURS",
-                        description: "Móvel para tv, 180 cm, fachada com relevo, jerem nogueira",
-                        discount: 0.2,
-                        price: 989.00,
-                        url: '#',
-                    },
-                    {
-                        id: 3,
-                        img: "./assets/img/products/prod_03.webp",
-                        collection: "LA REDOUTE INTERIEURS",
-                        description: "Móvel para tv em folha de carvalho, 3 portas, madria carvalho",
-                        discount: 0.2,
-                        price: 935.00,
-                        url: '#',
-                    },
-                    {
-                        id: 4,
-                        img: "./assets/img/products/prod_04.webp",
-                        collection: "LA REDOUTE INTERIEURS",
-                        description: "Móvel vintage, ronda nogueira",
-                        discount: 0.2,
-                        price: 407.00,
-                        url: '#',
-                    },
-                    {
-                        id: 5,
-                        img: "./assets/img/products/prod_05.webp",
-                        collection: "LA REDOUTE INTERIEURS",
-                        description: "Móvel para tv, em carvalho e palhinha, 160 cm, waska carvalho",
-                        discount: 0.25,
-                        price: 780.00,
-                        url: '#',
-                    }
-                ],
+    renderProductList()
 
-                categories: [
-                    {
-                        id: 1,
-                        name: 'Sofás',
-                        url: '#',
-                    },
-                    {
-                        id: 2,
-                        name: 'Cadeirões, pufes',
-                        url: '#'
-                    },
-                    {
-                        id: 3,
-                        name: 'Tapetes',
-                        url: '#'
-                    },
-                    {
-                        id: 4,
-                        name: 'Meas de centro',
-                        url: '#'
-                    },
-                    {
-                        id: 5,
-                        name: 'Móveis TV',
-                        url: '#'
-                    },
-                    {
-                        id: 6,
-                        name: 'Candeeiros',
-                        url: '#'
-                    },
-                    {
-                        id: 7,
-                        name: 'Estantes',
-                        url: '#'
-                    }
-                ],
-            }
-        },
-        methods: {
-            goToUrl(url) {
-                if(url !== '#'){
-                    $("#app").load(url);
-                }
-            },
-            toggleSidebar() {
-                let sidebar = document.querySelector('.sidebar');
-                sidebar.classList.toggle('open');
-            }
+    function goToUrl(url) {
+        if(url !== '#'){
+            $('#app').load(url)
         }
-    }).mount('#main')
+    }
+
+    
+
 </script>

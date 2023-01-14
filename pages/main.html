@@ -1,46 +1,49 @@
-<div id="main" class="container-fluid">
-    <div>
-        <p>breadcrumb</p>
+<div id="main" class="container">
+    <div class="row d-flex justify-content-between py-2">
+        <div class="col-12">
+            <p style="font-size: 18px;">La Redoute / Móveis / Sala de estar <b>/ Móveis TV</b></p>
+        </div>
     </div>
     <div>
         <h1>Móveis TV</h1>
     </div>
-
-    <section class="layout">
-        <div class="sidebar">
-            <div class="category-list">
-                <div v-for="category in categories" class="list-group">
-                    <li class="list-group-item list-group-item-action" @click="goToUrl(category.url)">{{category.name}}</li>
-                  </div>
+    <section class="sidebar container">
+        <div class="row my-3 my-1">
+            <div class="col-12 d-flex justify-content-end">
+                <button type="button" class="btn-close" @click="toggleSidebar()"></button>
             </div>
         </div>
-        <div class="body">
-            <div class="row">
-                <div v-for="product in products" :key="product.id" class="col-sm-12 col-md-3 card">
-                    <img :src="product.img" class="card-img-top" :alt=product.id>
-                    <div class="card-body">
-                        <h6 class="card-title">{{product.collection}}</h6>
-                        <p class="card-text text-truncate">{{product.description}}</p>
-                        <p><span class="card-price">{{product.price.toFixed(2)}} €</span><span class="card-discount">-{{product.discount * 100}}%</span></p>
-                        <h5 class="card-discounted-price">{{(product.price - (product.price * product.discount)).toFixed(2)}} €</h5>
-                    </div>
-    <div class="category-list">
-        <p>lista categorias</p>
-    </div>
-    <div class="container">
         <div class="row">
-            <div v-for="item in products" :key="item.id" class="col-sm-12 col-md-3 card">
-                <img :src="item.img" class="card-img-top" :alt=item.id>
-                <div class="card-body">
-                    <h6 class="card-title">{{item.collection}}</h6>
-                    <!-- <p class="card-text text-truncate">{{item.description}}</p> -->
-                    <p class="card-text">{{item.description}}</p>
-                    <p><span class="card-price">{{item.price.toFixed(2)}} €</span><span class="card-discount">-{{item.discount * 100}}%</span></p>
-                    <h5 class="card-discounted-price">{{(item.price - (item.price * item.discount)).toFixed(2)}} €</h5>
+            <div class="col-12">
+                <div class="category-list">
+                    <div v-for="category in categories" class="list-group">
+                        <li class="list-group-item list-group-item-action" @click="goToUrl(category.url)">
+                            {{category.name}}</li>
+                    </div>
                 </div>
             </div>
         </div>
+    
     </section>
+
+    <div class="container">
+        <div class="row">
+            <div v-for="item in products" :key="item.id" class="col-sm-12 col-md-6 col-lg-4 col-xl-3 card">
+                <div @click="goToUrl(item.url)" style="cursor: pointer;">
+                    <img :src="item.img" class="card-img-top" :alt=item.id>
+                    <div class="card-body">
+                        <h6 class="card-title">{{item.collection}}</h6>
+                        <p class="card-text">{{item.description}}</p>
+                        <p>
+                            <span class="card-price">{{item.price.toFixed(2)}} €</span>
+                            <span class="card-discount">-{{item.discount * 100}}%</span>
+                        </p>
+                        <h5 class="card-discounted-price">{{(item.price - (item.price * item.discount)).toFixed(2)}} €</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -52,35 +55,48 @@
                 products: [
                     {
                         id: 1,
-                        img: "./assets/img/products/prod_01.webp",
+                        img: "./assets/img/products/prod_01.png",
                         collection: "LA REDOUTE INTERIEURS",
-                        description: "Móvel para tv, 180 cm, fachada com relevo, jerem nogueira",
-                        discount: 0.2,
-                        price: 989.00
+                        description: "Móvel tv/hifi em pinho maciço e palhinha, gabin natural",
+                        discount: 0.30,
+                        price: 1000.00,
+                        url: './pages/produto.html',
                     },
                     {
                         id: 2,
                         img: "./assets/img/products/prod_02.webp",
                         collection: "LA REDOUTE INTERIEURS",
-                        description: "Móvel para tv em folha de carvalho, 3 portas, madria carvalho",
+                        description: "Móvel para tv, 180 cm, fachada com relevo, jerem nogueira",
                         discount: 0.2,
-                        price: 935.00
+                        price: 989.00,
+                        url: '#',
                     },
                     {
                         id: 3,
                         img: "./assets/img/products/prod_03.webp",
                         collection: "LA REDOUTE INTERIEURS",
-                        description: "Móvel vintage, ronda nogueira",
+                        description: "Móvel para tv em folha de carvalho, 3 portas, madria carvalho",
                         discount: 0.2,
-                        price: 407.00
+                        price: 935.00,
+                        url: '#',
                     },
                     {
                         id: 4,
                         img: "./assets/img/products/prod_04.webp",
                         collection: "LA REDOUTE INTERIEURS",
+                        description: "Móvel vintage, ronda nogueira",
+                        discount: 0.2,
+                        price: 407.00,
+                        url: '#',
+                    },
+                    {
+                        id: 5,
+                        img: "./assets/img/products/prod_05.webp",
+                        collection: "LA REDOUTE INTERIEURS",
                         description: "Móvel para tv, em carvalho e palhinha, 160 cm, waska carvalho",
                         discount: 0.25,
-                        price: 780.00
+                        price: 780.00,
+                        url: '#',
                     }
                 ],
 
@@ -108,7 +124,7 @@
                     {
                         id: 5,
                         name: 'Móveis TV',
-                        url: './pages/produto.html'
+                        url: '#'
                     },
                     {
                         id: 6,
@@ -124,11 +140,15 @@
             }
         },
         methods: {
-            goToUrl(url){
+            goToUrl(url) {
                 if(url !== '#'){
-                   $("#main").load(url); 
+                    $("#app").load(url);
                 }
+            },
+            toggleSidebar() {
+                let sidebar = document.querySelector('.sidebar');
+                sidebar.classList.toggle('open');
             }
-        } 
+        }
     }).mount('#main')
 </script>

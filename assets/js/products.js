@@ -5,8 +5,8 @@ const data = {
           img: "./assets/img/products/prod_01.png",
           collection: "LA REDOUTE INTERIEURS",
           description: "Móvel tv/hifi em pinho maciço e palhinha, gabin natural",
-          discount: 0.30,
-          price: 1000.00,
+          discount: 0.27,
+          price: 645.00,
           url: './pages/produto.html',
       },
       {

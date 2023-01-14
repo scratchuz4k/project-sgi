@@ -1,155 +1,132 @@
 
-let relogio = new THREE.Clock()
-let misturador = new THREE.AnimationMixer(cena)
-let acoes = []
-let loading = true
-let sizes
-let children = []
-let model
 
-let material = {};
-material.wood = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load('./assets/img/textures/wood.jpg') })
-material.roxo = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load('./assets/img/textures/roxo.jpg') })
-material.nogueira = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load('./assets/img/textures/nogueira.jpg') })
 
-let lastMaterialName;
 
-let carregador = new THREE.GLTFLoader()
-carregador.load(
-    './assets/blender/armario.gltf',
-    function (gltf) {
-        model = gltf.scene
+let quantity = 1
 
-        let cube = model.getObjectByName('Cube');
-        material.mogno = cube.material;
-        lastMaterialName = cube.material.name
-        gltf.scene.position.set(0, -1, 0)
+const data = {
+    products: [
+        { id: 1, img: "./assets/img/products/prod_01.png", collection: "LA REDOUTE INTERIEURS", description: "Móvel tv/hifi em pinho maciço e palhinha, gabin natural", discount: 0.30, price: 1000.00, url: './pages/produto.html', },
+        { id: 2, img: "./assets/img/products/prod_02.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para tv, 180 cm, fachada com relevo, jerem nogueira", discount: 0.2, price: 989.00, url: '#', },
+        { id: 3, img: "./assets/img/products/prod_03.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para tv em folha de carvalho, 3 portas, madria carvalho", discount: 0.2, price: 935.00, url: '#', },
+        { id: 4, img: "./assets/img/products/prod_04.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel vintage, ronda nogueira", discount: 0.2, price: 407.00, url: '#', },
+        { id: 5, img: "./assets/img/products/prod_05.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para tv, em carvalho e palhinha, 160 cm, waska carvalho", discount: 0.25, price: 780.00, url: '#', }
+    ],
+    categories: [
+        { id: 1, name: 'Sofás', url: './pages/main.html', },
+        { id: 2, name: 'Cadeirões, pufes', url: './pages/main.html' },
+        { id: 3, name: 'Tapetes', url: './pages/main.html' },
+        { id: 4, name: 'Meas de centro', url: './pages/main.html' },
+        { id: 5, name: 'Móveis TV', url: './pages/main.html' },
+        { id: 6, name: 'Candeeiros', url: './pages/main.html' },
+        { id: 7, name: 'Estantes', url: './pages/main.html' }
+    ],
+}
 
-        cena.add(gltf.scene);
+function addCarrinho() {
+    let carrinho = document.querySelector(".carrinho-icon")
+    carrinho.innerHTML = ''
+    let div = document.createElement("div")
+    div.classList.add("carrinho-amount")
+    div.innerHTML = quantity < 10 ? quantity : "9+"
+    quantity++
+    carrinho.appendChild(div)
+    let img = document.createElement("img")
+    img.classList.add("header-icon")
+    img.src = './assets/img/bag.png'
 
-        gltf.animations.forEach((e) => {
-            acoes.push(misturador.clipAction(e));
-        })
+    carrinho.appendChild(img)
+}
 
-        acoes.forEach((e) => {
-            let loop = THREE.LoopOnce
-            let clamp = true;
-            e.setLoop(loop)
-            e.clampWhenFinished = clamp
+function renderProductList() {
+
+    let list = document.getElementById('productList')
+
+    data.products.forEach((product) => {
+
+        let price = product.price.toFixed(2)
+        let discount = product.discount
+        let discountPercentage = discount * 100
+        let finalPrice = (price - (price * discount)).toFixed(2)
+
+        let divCol = document.createElement('div')
+        divCol.classList.add("col-sm-12", "col-md-6", "col-lg-4", "col-xl-3", "col-xxl-2", "card")
+        list.appendChild(divCol)
+
+        let divLink = document.createElement('div')
+        divLink.id = 'prod' + product.id
+        divLink.style.cursor = 'pointer'
+        divLink.onclick = () => {
+            goToUrl(product.url)
+        }
+        divCol.appendChild(divLink)
+
+        let img = document.createElement('img')
+        img.classList.add("card-img-top")
+        img.src = product.img
+        divLink.appendChild(img)
+
+        let cardBody = document.createElement('div')
+        cardBody.classList.add("card-body")
+        divLink.appendChild(cardBody)
+
+        let cardTitle = document.createElement('h6')
+        cardTitle.classList.add("card-title")
+        cardTitle.innerText = product.collection
+        cardBody.appendChild(cardTitle)
+
+        let cardText = document.createElement('p')
+        cardText.classList.add("card-text")
+        cardText.innerText = product.description
+        cardBody.appendChild(cardText)
+
+        let cardPrice = document.createElement('p')
+        cardPrice.innerHTML = '<span class="card-price">' + price + ' €</span><span class="card-discount">-' + discountPercentage + '%</span>'
+        cardBody.appendChild(cardPrice)
+
+        let cardFinalPrice = document.createElement('h5')
+        cardFinalPrice.classList.add('card-discounted-price')
+        cardFinalPrice.innerText = finalPrice + ' €'
+        cardBody.appendChild(cardFinalPrice)
+    })
+}
+
+function renderCategoryList() {
+    let list = document.getElementById('categoryList')
+    list.innerHTML = ''
+    data.categories.forEach((category) => {
+        let item = document.createElement('li')
+        item.id = 'cat' + category.id
+        item.onclick = () => {
+            goBack(category.url)
+            toggleSidebar()
+        }
+        item.classList.add("list-group-item", "list-group-item-action")
+        item.innerText = category.name
+        list.appendChild(item)
+    })
+}
+
+function toggleSidebar() {
+    let sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('open');
+}
+
+window.onload = function () {
+    let burger = document.querySelectorAll('.burger-btn');
+    if (burger.length) {
+        burger.forEach((e) => {
+            e.addEventListener('click', () => {
+                toggleSidebar()
+            })
         })
     }
-)
+    let carrinhoReset = document.querySelector(".carrinho-icon")
 
-let btnCamaraPos = document.querySelectorAll(".img-thumbnails")
-
-btnCamaraPos.forEach((e) => {
-    e.addEventListener('click', (e) => {
-        switch (e.target.id) {
-            case 'front':
-                camara.position.set(0, 3, 5)
-                camara.lookAt(0, 0, 0)
-                break;
-            case 'sideL':
-                camara.position.set(-5, 2, 4)
-                camara.lookAt(0, 0, 0)
-                break;
-            case 'sideR':
-                camara.position.set(5, 2, 4)
-                camara.lookAt(0, 0, 0)
-                break;
-            case 'back':
-                camara.position.set(0, 2, -5)
-                camara.lookAt(0, 0, 0)
-                break;
-
-        }
-        btnCamaraPos.forEach((e) => { e.classList.remove('selected') })
-        e.target.classList.add('selected')
+    carrinhoReset.addEventListener("click", function () {
+        quantity = 0
+        addCarrinho()
     })
-})
 
-
-let btnPlay = document.querySelectorAll(".btn-play")
-let boolPortas = false
-let boolGavetas = true
-
-btnPlay.forEach((e) => {
-    e.addEventListener('click', function () {
-        if (e.id == 'gavetas') {
-            switch (boolGavetas) {
-                case false:
-                    toggleAnimation(acoes[2], -1)
-                    toggleAnimation(acoes[3], 1)
-                    boolGavetas = 'fechar'
-                    e.innerHTML = "Fechar Gavetas"
-                    break;
-                case true:
-                    toggleAnimation(acoes[2], 1)
-                    toggleAnimation(acoes[3], -1)
-                    boolGavetas = false
-                    e.innerHTML = "Abrir Gavetas"
-                    break;
-                case 'fechar':
-                    toggleAnimation(acoes[2], -1)
-                    toggleAnimation(acoes[3], -1)
-                    boolGavetas = true
-                    e.innerHTML = "Abrir Gavetas"
-                    break;
-                default:
-                    toggleAnimation(acoes[2], -1)
-                    toggleAnimation(acoes[3], -1)
-                    boolGavetas = true
-                    break
-            }
-        } else {
-            if (!boolPortas) {
-                toggleAnimation(acoes[0], 1)
-                toggleAnimation(acoes[1], 1)
-                boolPortas = !boolPortas
-                e.innerHTML = "Fechar Portas"
-            } else {
-                toggleAnimation(acoes[0], -1)
-                toggleAnimation(acoes[1], -1)
-                boolPortas = !boolPortas
-                e.innerHTML = "Abrir Portas"
-            }
-        }
-    })
-})
-
-function toggleAnimation(animation, timeScale,) {
-    animation.paused = false
-    animation.timeScale = timeScale;
-    animation.play()
 }
 
-let btnTexture = document.querySelectorAll(".texture-item")
-
-btnTexture.forEach((e) => {
-    e.addEventListener('click', function () {
-        model.traverse(function (child) {
-            if (child.isMesh && child.material.name == lastMaterialName) {
-                child.material = material[e.id]
-                child.material.name = e.id
-            }
-        })
-        lastMaterialName = e.id
-        cena.add(model);
-        btnTexture.forEach((e) => { e.classList.remove('active') })
-        e.classList.add('active')
-    });
-})
-
-animar();
-
-function animar() {
-    requestAnimationFrame(animar);
-
-    // mostrar... 
-    renderer.render(cena, camara);
-    controlos.update(0.01)
-    misturador.update(relogio.getDelta())
-
-    // update the picking ray with the camera and pointer position
-    raycaster.setFromCamera(rato, camara);
-}

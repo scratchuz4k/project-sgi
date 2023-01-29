@@ -6,7 +6,7 @@ let quantity = 1
 
 const data = {
     products: [
-        { id: 1, img: "./assets/img/products/prod_01.png", collection: "LA REDOUTE INTERIEURS", description: "Móvel tv/hifi em pinho maciço e palhinha, gabin natural", discount: 0.30, price: 1000.00, url: './pages/produto.html', },
+        { id: 1, img: "./assets/img/products/prod_01.png", collection: "LA REDOUTE INTERIEURS", description: "Móvel tv/hifi em pinho maciço e palhinha, gabin natural", discount: 0.27, price: 645.00, url: './pages/produto.html', },
         { id: 2, img: "./assets/img/products/prod_02.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para tv, 180 cm, fachada com relevo, jerem nogueira", discount: 0.2, price: 989.00, url: './pages/produto.html', },
         { id: 3, img: "./assets/img/products/prod_03.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel para tv em folha de carvalho, 3 portas, madria carvalho", discount: 0.2, price: 935.00, url: './pages/produto.html', },
         { id: 4, img: "./assets/img/products/prod_04.webp", collection: "LA REDOUTE INTERIEURS", description: "Móvel vintage, ronda nogueira", discount: 0.2, price: 407.00, url: './pages/produto.html', },

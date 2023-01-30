@@ -20,14 +20,15 @@
             $("#includedContent").load("./assets/layout/nav.html");
             $("#app").load("./pages/main.html");
         });
-        window.onscroll = function (e) {
+        // Não está a ser usado. Código protótipo
+        /* window.onscroll = function (e) {
             var doc = document.documentElement;
             if (((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)) > 0) {
                 document.querySelector('nav').classList.add('close')
             } else {
                 document.querySelector('nav').classList.remove('close')
             }
-        };
+        }; */
     </script>
     <style>
         #app {
